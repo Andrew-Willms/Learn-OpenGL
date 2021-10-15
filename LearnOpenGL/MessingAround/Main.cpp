@@ -51,49 +51,7 @@ int main() {
     }
 
     // build and compile our shader program
-    
     ShaderCompiler myShader("PassthroughVertexShader.glsl", "PurpleFragmentShader.glsl");
-
-    //// vertex shader
-    //unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    //glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-    //glCompileShader(vertexShader);
-
-    //// check for shader compile errors
-    //int success;
-    //char infoLog[512];
-    //glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-    //if (!success) {
-    //    glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-    //    std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
-    //}
-
-    //// fragment shader
-    //unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    //glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-    //glCompileShader(fragmentShader);
-
-    //// check for shader compile errors
-    //glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-    //if (!success) {
-    //    glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-    //    std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
-    //}
-
-    //// link shaders
-    //unsigned int shaderProgram = glCreateProgram();
-    //glAttachShader(shaderProgram, vertexShader);
-    //glAttachShader(shaderProgram, fragmentShader);
-
-    //glLinkProgram(shaderProgram);
-    //// check for linking errors
-    //glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-    //if (!success) {
-    //    glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-    //    std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
-    //}
-    //glDeleteShader(vertexShader);
-    //glDeleteShader(fragmentShader);
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     float vertices[] = {
@@ -107,7 +65,7 @@ int main() {
         0, 1, 3,
         1, 2, 3
     };
-
+    
     // VBO: Vertext Buffer Object, VAO: Virtex Array Object
     unsigned int VBO, VAO, EBO;
     glGenVertexArrays(1, &VAO);
@@ -151,7 +109,6 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT);
 
         // draw our first triangle
-        //glUseProgram(shaderProgram); // replaced with myShader.useProgram()
         myShader.useProgram();
         glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
         //glDrawArrays(GL_TRIANGLES, 0, 3); // for when there was only a single triangle
@@ -166,7 +123,6 @@ int main() {
     // optional: de-allocate all resources once they've outlived their purpose:
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
-    //glDeleteProgram(shaderProgram); // replaced with myShader.deleteProgram()
     myShader.deleteProgram();
 
     // glfw: terminate, clearing all previously allocated GLFW resources.
