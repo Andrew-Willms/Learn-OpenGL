@@ -96,8 +96,12 @@ ShaderCompiler::ShaderCompiler(const char* vertexPath, const char* fragmentPath)
 
 }
 
-void ShaderCompiler::use() {
+void ShaderCompiler::useProgram() {
 	glUseProgram(ShaderProgramID);
+}
+
+void ShaderCompiler::deleteProgram() {
+	glDeleteProgram(ShaderProgramID);
 }
 
 void ShaderCompiler::setBool(const std::string& name, bool value) const {

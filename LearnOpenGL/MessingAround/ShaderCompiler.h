@@ -14,7 +14,10 @@ public:
 	ShaderCompiler(const char* vertexPath, const char* fragmentPath);
 
 	// use/activate the shader
-	void use();
+	void useProgram();
+
+	// delete the shader
+	void deleteProgram();
 
 	// utility uniform functions
 	void setBool(const std::string& name, bool value) const;
