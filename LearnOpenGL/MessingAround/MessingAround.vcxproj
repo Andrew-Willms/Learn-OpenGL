@@ -153,6 +153,10 @@
   <ItemGroup>
     <ClInclude Include="ShaderCompiler.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="PurpleFragmentShader.glsl" />
+    <None Include="PassthroughVertexShader.glsl" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

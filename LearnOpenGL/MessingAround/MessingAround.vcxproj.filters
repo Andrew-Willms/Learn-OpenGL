@@ -16,6 +16,12 @@
     <Filter Include="Source Files\Shaders">
       <UniqueIdentifier>{73ef65e1-af83-4a6f-9ef0-74c9730fffb4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Shaders\VertexShaders">
+      <UniqueIdentifier>{c8d8bf7b-5620-42f3-b8c5-bfe6b3d39867}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shaders\FragmentShaders">
+      <UniqueIdentifier>{457483ec-4f67-46a5-b65b-83079e012ec2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -32,5 +38,13 @@
     <ClInclude Include="ShaderCompiler.h">
       <Filter>Source Files\Shaders</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PassthroughVertexShader.glsl">
+      <Filter>Source Files\Shaders\VertexShaders</Filter>
+    </None>
+    <None Include="PurpleFragmentShader.glsl">
+      <Filter>Source Files\Shaders\FragmentShaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
