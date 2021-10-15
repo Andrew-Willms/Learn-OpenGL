@@ -11,28 +11,28 @@ ShaderCompiler::ShaderCompiler(const char* vertexPath, const char* fragmentPath)
 
 //////// Retrieve the shade code from the files ///////////////////////////////
 
+	std::ifstream vertexFile;
+	std::ifstream fragmentFile;
 	std::string vertexCode;
 	std::string fragmentCode;
-	std::ifstream vShaderFile;
-	std::ifstream fShaderFile;
 
 	// Ensure ifstream objects can throw exceptions.
-	vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-	fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+	vertexFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+	fragmentFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 
 	try {
 		// open files
-		vShaderFile.open(vertexPath);
-		fShaderFile.open(fragmentPath);
+		vertexFile.open(vertexPath);
+		fragmentFile.open(fragmentPath);
 		std::stringstream vShaderStream, fShaderStream;
 
 		// read file’s buffer contents into streams
-		vShaderStream << vShaderFile.rdbuf();
-		fShaderStream << fShaderFile.rdbuf();
+		vShaderStream << vertexFile.rdbuf();
+		fShaderStream << fragmentFile.rdbuf();
 
 		// close file handlers
-		vShaderFile.close();
-		fShaderFile.close();
+		vertexFile.close();
+		fragmentFile.close();
 
 		// convert stream into string
 		vertexCode = vShaderStream.str();
@@ -75,7 +75,9 @@ ShaderCompiler::ShaderCompiler(const char* vertexPath, const char* fragmentPath)
 		std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
 	}
 
-	// shader Program
+//////// Linking the shaders //////////////////////////////////////////////////
+
+	// Shader Program
 	ShaderProgramID = glCreateProgram();
 	glAttachShader(ShaderProgramID, vertexShaderID);
 	glAttachShader(ShaderProgramID, fragmentShaderID);
