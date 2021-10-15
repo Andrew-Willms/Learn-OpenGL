@@ -45,6 +45,10 @@ ShaderCompiler::ShaderCompiler(const char* vertexPath, const char* fragmentPath)
 	const char* vShaderCode = vertexCode.c_str();
 	const char* fShaderCode = fragmentCode.c_str();
 
+	// Useful for debugging maybe.
+	//std::cout << vShaderCode << std::endl;;
+	//std::cout << fShaderCode << std::endl;;
+
 //////// Compile the shaders //////////////////////////////////////////////////
 
 	unsigned int vertexShaderID, fragmentShaderID;

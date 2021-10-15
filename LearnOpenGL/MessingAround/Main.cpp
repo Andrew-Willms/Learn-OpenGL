@@ -52,7 +52,7 @@ int main() {
 
     // build and compile our shader program
     
-    ShaderCompiler myShader("PassthroughVertexShader.glsl", "PurpleGramgmentShader.glsl");
+    ShaderCompiler myShader("PassthroughVertexShader.glsl", "PurpleFragmentShader.glsl");
 
     //// vertex shader
     //unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
